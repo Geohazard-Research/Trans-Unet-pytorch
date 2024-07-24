@@ -65,7 +65,7 @@ if __name__ == "__main__":
     eval_flag           = True
     eval_period         = 5
 
-    VOCdevkit_path  = 'VOCdevkit'
+    training_img_path  = 'training_img'
 
     dice_loss       = True
 
@@ -157,12 +157,9 @@ if __name__ == "__main__":
             cudnn.benchmark = True
             model_train = model_train.cuda()
     
-    #---------------------------#
-    #   读取数据集对应的txt
-    #---------------------------#
-    with open(os.path.join(VOCdevkit_path, "VOC2007/ImageSets/Segmentation/train.txt"),"r") as f:
+    with open(os.path.join(training_img_path, "ImageSets/Segmentation/train.txt"),"r") as f:
         train_lines = f.readlines()
-    with open(os.path.join(VOCdevkit_path, "VOC2007/ImageSets/Segmentation/val.txt"),"r") as f:
+    with open(os.path.join(training_img_path, "ImageSets/Segmentation/val.txt"),"r") as f:
         val_lines = f.readlines()
     num_train   = len(train_lines)
     num_val     = len(val_lines)
@@ -214,8 +211,8 @@ if __name__ == "__main__":
         if epoch_step == 0 or epoch_step_val == 0:
             raise ValueError("数据集过小，无法继续进行训练，请扩充数据集。")
         
-        train_dataset   = SegmentationDataset(train_lines, input_shape, num_classes, True, VOCdevkit_path)
-        val_dataset     = SegmentationDataset(val_lines, input_shape, num_classes, False, VOCdevkit_path)
+        train_dataset   = SegmentationDataset(train_lines, input_shape, num_classes, True, training_img_path)
+        val_dataset     = SegmentationDataset(val_lines, input_shape, num_classes, False, training_img_path)
     
         if distributed:
             train_sampler   = torch.utils.data.distributed.DistributedSampler(train_dataset, shuffle=True,)
@@ -235,7 +232,7 @@ if __name__ == "__main__":
                                     worker_init_fn=partial(worker_init_fn, rank=rank, seed=seed))
 
         if local_rank == 0:
-            eval_callback   = EvalCallback(model, input_shape, num_classes, val_lines, VOCdevkit_path, log_dir, Cuda, \
+            eval_callback   = EvalCallback(model, input_shape, num_classes, val_lines, training_img_path, log_dir, Cuda, \
                                             eval_flag=eval_flag, period=eval_period)
         else:
             eval_callback   = None
