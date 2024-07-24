@@ -25,8 +25,8 @@ class SegmentationDataset(Dataset):
         annotation_line = self.annotation_lines[index]
         name            = annotation_line.split()[0]
 
-        jpg         = Image.open(os.path.join(os.path.join(self.dataset_path, "VOC2007/JPEGImages"), name + ".png"))
-        png         = Image.open(os.path.join(os.path.join(self.dataset_path, "VOC2007/SegmentationClass"), name + ".png"))
+        jpg         = Image.open(os.path.join(os.path.join(self.dataset_path, "JPEGImages"), name + ".png"))
+        png         = Image.open(os.path.join(os.path.join(self.dataset_path, "SegmentationClass"), name + ".png"))
 
         jpg, png    = self.get_random_data(jpg, png, self.input_shape, random = self.train)
 
