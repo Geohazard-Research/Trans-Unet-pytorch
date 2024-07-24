@@ -10,3 +10,6 @@ The U-shaped full-scale feature extraction (U-FFE) module in the Trans-UNet2 mod
 ![U型链接6](https://github.com/user-attachments/assets/0320f898-a862-4a7a-9cd0-b18657839f86)
 
 Figure 2. Architecture of the proposed U-shaped full-scale feature extraction (U-FFE) module
+
+The preliminary weights for the Trans-Unet2 model can be accessed via this link:
+https://drive.google.com/drive/folders/1Tuvh67Rcws1h4dQhRFCCmXx8l1XeTqH6?usp=drive_link
