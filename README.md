@@ -11,5 +11,5 @@ The U-shaped full-scale feature extraction (U-FFE) module in the Trans-UNet2 mod
 
 Figure 2. Architecture of the proposed U-shaped full-scale feature extraction (U-FFE) module
 
-The preliminary weights for the Trans-Unet2 model can be accessed via this link:
+# The training weights for the Trans-Unet2 model can be accessed via this link:
 https://drive.google.com/drive/folders/1Tuvh67Rcws1h4dQhRFCCmXx8l1XeTqH6?usp=drive_link
