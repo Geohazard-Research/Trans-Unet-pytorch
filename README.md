@@ -1,4 +1,4 @@
-# Trans-Unet2 Model for Landslide Mapping
+# Trans-Unet Model for Landslide Mapping
 The overall architecture of the Trans-UNet2 model, as depicted in Figure 1, employs a symmetric encoder-decoder structure similar to that of the UNet model. A hierarchical Transformer module serves as the encoder for this model, extracting global context features from images. A convolutional decoder module, consisting of the convolutions and up-sampling layers, is designed to restore spatial dimensions of the feature map, reduce the number of feature channels, and ultimately produce the segmentation results. Furthermore, a U-shaped full-scale feature extraction module is constructed to connect the corresponding layers of the encoder and decoder for capturing fine-grained details and broader contextual information. 
 
 ![模型结构-Segformer-Unet-0702](https://github.com/user-attachments/assets/41ce363e-23c5-4969-897a-d7d7ead38da5)
