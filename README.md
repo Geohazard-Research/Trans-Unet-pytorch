@@ -1,4 +1,4 @@
-# Trans-Unet Model for Landslide Mapping
+# Trans-UNet Model for Landslide Mapping
 The overall architecture of the Trans-UNet model, as depicted in Figure 1. 
 
 ![模型结构图-0817](https://github.com/user-attachments/assets/ece2293f-19d5-426a-9c91-5a22c3e53e59)
